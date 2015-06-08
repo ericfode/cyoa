@@ -17,7 +17,15 @@ I can annotate chunks of writing with
 * Options the user can choose
 * Conditions about which place to go to next
 * I can use annotations like`#charactor/name[id]`as place holders in my writing.
-
+ 
+From the writer
+----------
+Looking at the story top down, I'd like to.....
+*Assign tags to paragraphs, to make searching through project quick, and ease moving information around
+*Moving paragraphs around needs to be easy.
+*Allow blank "filler" spaces when there is a gap in the story (!null)
+*Have cyoa action options separate from the preceding paragraph/text (unlike w/inkle) - so choices can move around
+*Allow for "junk" of unused paragraphs, segments, or chains that can be cut/paste in as/if needed
 
 
 As an engineer
@@ -26,6 +34,11 @@ As an engineer
 * The text is parseable to datoms like this
 ``` [ entity-id entity-attirbute attribute-value order]```
 * The format is plain text
+ 
+Feedback for that ^ and that v
+------------
+*What kind of graph? Word usage? Length?
+*Would the writer be creating the story like  that v ? Or is that just the plain text at the back end?
 
 Examples
 ---------
