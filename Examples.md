@@ -21,11 +21,11 @@ I can annotate chunks of writing with
 From the writer
 ----------
 Looking at the story top down, I'd like to.....
-*Assign tags to paragraphs, to make searching through project quick, and ease moving information around
-*Moving paragraphs around needs to be easy.
-*Allow blank "filler" spaces when there is a gap in the story (!null)
-*Have cyoa action options separate from the preceding paragraph/text (unlike w/inkle) - so choices can move around
-*Allow for "junk" of unused paragraphs, segments, or chains that can be cut/paste in as/if needed
+* Assign tags to paragraphs, to make searching through project quick, and ease moving information around
+* Moving paragraphs around needs to be easy.
+* Allow blank "filler" spaces when there is a gap in the story (!null)
+* Have cyoa action options separate from the preceding paragraph/text (unlike w/inkle) - so choices can move around
+* Allow for "junk" of unused paragraphs, segments, or chains that can be cut/paste in as/if needed
 
 
 As an engineer
