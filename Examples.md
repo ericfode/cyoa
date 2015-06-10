@@ -16,7 +16,7 @@ I can annotate chunks of writing with
 * Place's invovled
 * Options the user can choose
 * Conditions about which place to go to next
-* I can use annotations like`#charactor/name[id]`as place holders in my writing.
+* Use annotations like`#charactor/name[id]`as place holders in my writing.
  
 From the writer
 ----------
@@ -30,36 +30,75 @@ Looking at the story top down, I'd like to.....
 
 As an engineer
 ------------
-* I can create a graph out of the writers text
+* I can create a graph out of the writers text (like below) (note that edges and nodes are independent objects)
+![example story graph](http://www.gamesbyangelina.org/wp-content/uploads/2013/09/Screen-Shot-2013-09-12-at-13.05.26-1024x512.png)
 * The text is parseable to datoms like this
 ``` [ entity-id entity-attirbute attribute-value order]```
 * The format is plain text
  
-Feedback for that ^ and that v
+Feedback for that tech and that v
 ------------
-*What kind of graph? Word usage? Length?
-*Would the writer be creating the story like  that v ? Or is that just the plain text at the back end?
+* What kind of graph? Word usage? Length?
+* Would the writer be creating the story like  that v ? Or is that just the plain text at the back end?
 
 Examples
 ---------
 ```clojure
-{:chunk/name :random-scene
+[
+{
+ :chunk/name :random-scene
  :chunk/text
 """
 Lots of story going on here telling the reader about all of the things, helping them get off just one more time when suddnely #char/name[:sexy-man] enters the room and  #phrases/synonym["fucks"] #char/name[:sexy-lady]. They then leave. Suddenly you have a choise!
 """
- :chunk/choices [
- {
-   :choice/text "Punch #char/name[:sexy-man] in the face next time you see him and proceed to his room"
-   :choice/go-to #chunk[:another-random-scene]
- }
-  {
-   :choice/text "make out with #char/name[:sexy-lady] in the face next time you see her while beating her with a dildo"
-   :choice/go-to #chunk[:death]
- }
-]
+  :chunk/tags ["awesome tag 1", "awsome tag 2", :tags-can-be-symbols-too]
+}
+{
+  :chunk/name :not-yet-written
+  :chunk/text ""
+  :chunk/tags ["charactors have steamy sex, but sex scene generator is not ready"
+}
+{
+ :chunk/name :another-better-scene
+ :chunk/text
+"""
+A chicken is punched, leaving the religious people quite startled.
+"""
+  :chunk/tags ["awesome outher tag", :kelp]
+  :chunk/notes
+  """
+    Free form flield for the writer to put notes about things? Useful I don't know.
+  """
+}
+
+;; Write some choices for the user  (;; is comment in clojure)
+{ :choice/from :another-better-scene
+  :choice/to :random-scene
+  :choice/text "punch chicken"}
+
+
+{ :choice/from :another-better-scene
+  :choice/to :random-scene
+  :choice/text "don't punch chicken"
+  :choice/comment "not that it really matters"}
+  
+;; You can write them in anywhere, 
+;; when the story is rendered it quries the data base from all choices going from that chuck 
+;; that query looks something like this 
+[:find ?c
+ :with ?origin_chunk
+ :where [?c :choice/from ?origin_chunk]]
+;; Find all ?c, with the paramater ?origin_chunk where ?c has the attribute :choice/from set to ?origin_chunk
+
+                  
+
+
 ```
 
+
+ChangeLog
+---------
+Reworked the structure of the story to be slightly flatter and allow more flexiblity around where choices are and how deeply nested they are. 
 
 Tidbits
 
